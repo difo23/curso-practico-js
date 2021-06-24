@@ -170,10 +170,13 @@ const type_subs = "basic";
 
 if(type_subs == "basic") {
     console.log("Puedes tomar casi todos los cursos de Platzi durante un mes");
-} else if (type_subs == "basic") {
-    
+} else if (type_subs == "expert") {
+    console.log("Puedes tomar casi todos los cursos de Platzi durante un año");
+} else if (type_subs == "expert+") {
+    console.log("Puedes tomar todos los cursos de Platzi durante un año");
+}else {
+    console.log("Solo puedes tomar los cursos gratis"); 
 }
-
 ```
 
 
@@ -182,14 +185,67 @@ if(type_subs == "basic") {
 
 > Bonus: si ya eres una experta o experto en el lenguaje, te desafío a comentar cómo replicar este comportamiento con arrays y un solo condicional. 😏
 
+```js
+const type_subs = "basic";
+
+if(type_subs == "basic") {
+    console.log("Puedes tomar casi todos los cursos de Platzi durante un mes");
+} 
+if (type_subs == "expert") {
+    console.log("Puedes tomar casi todos los cursos de Platzi durante un año");
+} 
+if (type_subs == "expert+") {
+    console.log("Puedes tomar todos los cursos de Platzi durante un año");
+}
+if(type_subs == "free"){
+    console.log("Solo puedes tomar los cursos gratis"); 
+}
+
+
+
+```
+
+```js
+//Bonus
+const type_subs = "basic";
+
+const subs = {
+    basic: "Puedes tomar casi todos los cursos de Platzi durante un mes",
+    expert: "Puedes tomar casi todos los cursos de Platzi durante un año",
+    expertplus: "Puedes tomar todos los cursos de Platzi durante un año", 
+    free: "Solo puedes tomar los cursos gratis"
+}
+
+
+if (type_subs in subs) {
+    console.log(subs[type_subs])
+}
+
+console.log(`Valid subs ${keys(subs)}`)
+
+```
+
+
+
 ## Ciclos
 
 1️⃣ Responde las siguientes preguntas en la sección de comentarios:
 
 - ¿Qué es un ciclo?
-- ¿Qué tipos de ciclos existen en JavaScript?
+
+> Repetir código basándonos en una condición. Cuando la condición nunca se cumple se considera un ciclo infinito y puede dar problemas. 
+
+- ¿Qué tipos de ciclos existen en `JavaScript`?
+
+> En `js` existen varios tipos de ciclos entre ellos están: `for`, `while` , `do ... while` y la `recursividad` que es simplemente un ciclo con funciones. Existen otras formas de hacer ciclos con funciones `map()` pero los comunes son los primeros cuatros mencionados. 
+
 - ¿Qué es un ciclo infinito y por qué es un problema?
+
+  > Un ciclo infinito es aquel que no cumple una condición de fin.  Depende donde sea un problema, en `js` puede reventar la memoria de tu maquina, pero en `Arduino` por ejemplo los ciclos infinitos son esenciales en algunos casos. Pero como nosotros estamos enfocados en `js` es mejor evitarlos. 
+
 - ¿Puedo mezclar ciclos y condicionales?
+
+> Claro que si, un ciclo necesita condicionales para llevar acabo sus repeticiones. 
 
 2️⃣ Replica el comportamiento de los siguientes ciclos `for` utilizando ciclos `while`:
 
@@ -202,22 +258,93 @@ for (let i = 10; i >= 2; i--) {
 }
 ```
 
+```Js
+let i = 0;
+while(i < 5) {
+    console.log("El valor de i es: " + i);
+    i++;
+}
+
+let i = 10;
+while(i >= 2) {
+    console.log("El valor de i es: " + i);
+    i--;
+}
+```
+
+
+
+
+
 3️⃣ Escribe un código en JavaScript que le pregunte a los usuarios cuánto es `2 + 2`. Si responden bien, mostramos un mensaje de felicitaciones, pero si responden mal, volvemos a empezar.
 
 > Pista: puedes usar la función [prompt](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt) de JavaScript.
+
+```js
+let resp = 0
+while( resp != 4){
+   resp = parseInt(prompt("Cuantos es 2 + 2? "));
+}
+
+console.log("Felicidades sabes sumar!");
+```
+
+
 
 ## Listas
 
 1️⃣ Responde las siguientes preguntas en la sección de comentarios:
 
 - ¿Qué es un array?
+
+> Es una estructura de datos simple, que organiza los valores siguiendo un orden y un index. 
+
 - ¿Qué es un objeto?
+
+> Una estructura de datos, en `js` los objetos pueden ser literales para contener datos clave-valor o pueden ser instancias de una clase determinada.
+
 - ¿Cuándo es mejor usar objetos o arrays?
-- ¿Puedo mezclar arrays con objetos o incluso objetos con arrays?
+
+> Pues depende mucho de que quieras hacer, los arreglos no permiten otros indices que números. Por otro lado los objetos te permiten tener indices mas elaborados. 
+
+- ¿Puedo mezclar `arrays` con objetos o incluso objetos con `arrays`?
+
+> En `js` lo imposible  para otros lenguajes suele suceder con regularidad. Así que si puedes mezclarlos. 
 
 2️⃣ Crea una función que pueda recibir cualquier array como parámetro e imprima su primer elemento.
 
-3️⃣ Crea una función que pueda recibir cualquier array como parámetro e imprima todos sus elementos uno por uno (no se vale imprimir el array completo).
+```js
+function first_arr(arr) {
+    console.log(arr[0])
+}
+```
+
+
+
+3️⃣ Crea una función que pueda recibir cualquier `array` como parámetro e imprima todos sus elementos uno por uno (no se vale imprimir el `array` completo).
+
+```js
+function all_arr(arr) {
+   arr.map(element => {
+       console.log(element);
+   })
+}
+
+```
+
+
 
 4️⃣ Crea una función que pueda recibir cualquier objeto como parámetro e imprima todos sus elementos uno por uno (no se vale imprimir el objeto completo).
+
+```js
+function all_arr(objt) {
+  for(element of objt){
+      
+  }
+}
+```
+
+
+
+
 
